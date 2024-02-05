@@ -46,7 +46,7 @@ The `CognitoHelper` handles the login at Amazon Cognito and persists/loads once 
 The `FilemakerAuthorizationApi` is used to trade a FMID for a bearer token.
 ```mermaid
   classDiagram
-  class FilemakerAuthorizationApi {
+  class FilemakerAuthorizationService {
     String getToken(String fmid)
   }
 ```
@@ -63,11 +63,13 @@ The `FilemakerService` is used to call the FileMaker cloud REST API.
 ## Using the tool
 1. FileMaker Cloud Admin Console: Enable the **FileMaker Data API** connector
 2. Create a table with the name `projects` and the columns `id`, `project_id` and `name`.
-3. Put your credentials and database configuration in the file `src/main/resources/config.properties`:  
+3. Deactivate the option "Prohibit modification of value during data entry" of the `id` column.
+4. Put your credentials and database configuration in the file `src/main/resources/config.properties`:  
    *USERNAME* - your username  
    *PASSWORD* - your password  
    *HOSTNAME* - your team's host  
-   *DATABASE* - your FileMaker database (aka 'app', target of the import)  
+   *DATABASE* - your FileMaker database (aka 'app', target of the import)
+5. Run the import tool  
 
 ## Additional informations
 
